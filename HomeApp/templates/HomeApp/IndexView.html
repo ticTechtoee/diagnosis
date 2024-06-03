@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'assets/css/homestyle.css' %}">
+  <title>Diagnosis</title>
+</head>
+<body>
+
+
+<header>
+	<div class="topbar">
+	<div class="container">
+
+	   <div  class="nav-main">
+      <div class="nav-btn">
+        <button><a href="{% url 'HomeApp:HomeView' %}" class="anchor-a">Sign in</a></button>
+
+      </div>
+      <div class="nav-bar">
+			<nav>
+				<ul>
+			        <li><a href="home.html">HOME</a></li>
+			        <li><a href="aboutus.html">ABOUT US </a></li>
+			        <li><a href="services.html">SERVICES</a></li>
+
+		   		</ul>
+		    </nav>
+       </div>
+       </div>
+       </div>
+
+    </div>
+<div class="innerbar-main">
+    <div class="container">
+   	<div class="inner-bar">
+   		<div class="bar-logo">
+        <img src="{% static 'assets/images/logo.png' %}">
+
+
+   		</div>
+   		<div class="vertical-line"></div>
+
+
+   		<div class="bar-text">
+   			<h1>AI Techniques in CT Scan Imaging Segmentation and Diagnose</h1>
+
+   		</div>
+
+   	</div>
+
+   </div>
+ </div>
+</header>
+
+<section class="bg-light">
+
+    <div class="hero-bn">
+      <div class="container-heading">
+      <div class="hero-heading">
+      <h1>Medical Imaging:</h1>
+    </div>
+  </div>
+  </div>
+    <div class="container">
+      <div class="hero-text">
+        <p>Our research in this area covers a wide range of topics, from development of imaging devices, image reconstruction, contrast media and kinetic modeling, image processing and analysis, and patient modeling. In addition to traditional clinical imaging modalities, such as CT, we are also interested in emerging technologies (e.g., functional and biological imaging techniques) for cancer detection. We are also working on four-dimensional imaging techniques so that the change of 3D patient anatomy with time can be visualized and analyzed.</p>
+
+      </div>
+    </div>
+
+</section>
+<section class="bg-light">
+  <div class="container">
+  <div class="bn-two">
+    <div class="bn-video-one">
+      <video width="88%" height="100%" controls>
+        <source src="{% static 'assets/images/vone.mp4' %}">
+
+      </video>
+
+    </div>
+    <div class="bn-video-two">
+      <video width="100%" height="100%" controls>
+        <source src="{% static 'assets/images/vtwo.mp4' %}" >
+
+
+      </video>
+
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="banner-3">
+  <div class="container">
+
+    <div class="bn3-content">
+      <h5>Welcome to Diagnosis!<br>Upload an image and get the results.</h5>
+
+      <button><a href="services.html" class="anchor-a">TRY HEALTHCURE</a></button>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light">
+  <div class="container">
+  <div class="our-services">
+     <div class="services-card">
+
+        <img src="{% static 'assets/images/normal.png' %}">
+
+        <h3>NORMAL</h3>
+
+      </div>
+
+      <div class="services-card">
+        <img src="{% static 'assets/images/infected.png' %}">
+
+        <h3>INFECTED</h3>
+
+      </div>
+      <div class="services-card">
+        <img src="{% static 'assets/images/opacity.png' %}">
+        <h3>OPACITY </h3>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+ <!-- <section class="bg-light">
+    <div class="container">
+    <div class="diseases">
+       <div class="services-card">
+
+          <img src="assets/images/c2.png">
+          <h3>Covid-19</h3>
+
+        </div>
+
+        <div class="services-card">
+          <img src="assets/images/l2.png">
+          <h3>Lung Cancer</h3>
+
+        </div>
+        <div class="services-card">
+          <img src="assets/images/p1.png">
+          <h3>Pneumonia</h3>
+
+        </div>
+      </div>
+    </div>
+</section>-->
+<footer>
+    <div class="container">
+      <div class="footer-main">
+        <div class="f-content" >
+          <h4>NAVIGATION</h4>
+            <ul>
+                        <li><a href="home.html">HOME</a></li>
+                  <li><a href="aboutus.html"> ABOUT US</a></li>
+                  <li><a href="services.html">SERVICES</a></li>
+
+            </ul>
+
+        </div>
+        <div class="f-content">
+          <h4>HEALTH CARE</h4>
+            <ul>
+              <li><a href="covidform.html">COVID-19</a></li>
+                  <li><a href="lungform.html"> LUNG CANCER</a></li>
+                  <li><a href="Pneumoniaform.html">PNEUMONIA</a></li>
+              </ul>
+
+        </div>
+        <div class="subscribe">
+
+            <h4> SUBSCRIBE</h4>
+              <input type="email" name="nmae" placeholder="Email Address">
+            <button>Send</button>
+
+            <img src="{% static 'assets/images/logo-bg-none.png' %}">
+
+
+        </div>
+
+      </div>
+      </div>
+      <div class="copyright">
+          <h5>&copy; 2023 by Diagnosis, Proudly created</h5>
+      </div>
+
+
+</footer>
+
+</body>
+</html>
