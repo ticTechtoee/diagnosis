@@ -4,4 +4,4 @@ def ViewHome(request):
     return render(request, "HomeApp/IndexView.html")
 
 def ViewAboutUs(request):
-    return render(request, "HomeApp/AboutUsView.html")
+    return render(request, "HomeApp/AboutusView.html")
