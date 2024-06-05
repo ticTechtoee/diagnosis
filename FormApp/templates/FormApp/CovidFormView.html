@@ -1,0 +1,35 @@
+{% extends "MainBase.html" %}
+{% load static %}
+{% block content %}
+<section>
+
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="f-main">
+        <h1>Covid-19 Detection:</h1>
+
+        <div class="input-field">
+            {{ form.name }}
+            {{ form.phone }}
+            {{ form.email }}<br>
+            {{ form.adoption_date }}<br>
+            {{ form.age }}
+
+            <p>Gender</p>
+            {{ form.gender }}
+
+            <div class="upload-label">
+                <label>Upload File</label>
+                {{ form.upload_file }}
+            </div>
+            <div class="f-btn">
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+  </section>
+{% endblock content %}
