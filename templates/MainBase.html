@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/homestyle.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/covidformstyle.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/servicestyle.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/aboutusstyle.css' %}">
 
 
     <title>Diagnosis</title>
@@ -29,7 +30,7 @@
                         <nav>
                             <ul>
                                 <li><a href="{% url 'HomeApp:HomeView' %}">HOME</a></li>
-                                <li><a href="aboutus.html">ABOUT US </a></li>
+                                <li><a href="{% url 'HomeApp:AboutUsView' %}">ABOUT US </a></li>
                                 <li><a href="{% url 'ServiceApp:IndexView' %}">SERVICES</a></li>
 
                             </ul>
@@ -72,8 +73,8 @@
                     <h4>NAVIGATION</h4>
                     <ul>
                         <li><a href="{% url 'HomeApp:HomeView' %}">HOME</a></li>
-                                <li><a href="aboutus.html">ABOUT US </a></li>
-                                <li><a href="{% url 'ServiceApp:IndexView' %}">SERVICES</a></li>
+                        <li><a href="{% url 'HomeApp:AboutUsView' %}">ABOUT US</a></li>
+                        <li><a href="{% url 'ServiceApp:IndexView' %}">SERVICES</a></li>
 
                     </ul>
 

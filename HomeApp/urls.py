@@ -5,4 +5,6 @@ app_name = "HomeApp"
 
 urlpatterns = [
     path('', views.ViewHome, name="HomeView"),
+    path('aboutus/', views.ViewAboutUs, name="AboutUsView"),
+
     ]
