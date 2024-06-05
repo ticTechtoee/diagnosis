@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def ViewIndex(request):
+    return render(request, "ServiceApp/IndexView.html")

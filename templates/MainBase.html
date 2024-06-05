@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'assets/css/homestyle.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/covidformstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/servicestyle.css' %}">
+
 
     <title>Diagnosis</title>
 </head>
@@ -26,9 +28,9 @@
                     <div class="nav-bar">
                         <nav>
                             <ul>
-                                <li><a href="home.html">HOME</a></li>
+                                <li><a href="{% url 'HomeApp:HomeView' %}">HOME</a></li>
                                 <li><a href="aboutus.html">ABOUT US </a></li>
-                                <li><a href="services.html">SERVICES</a></li>
+                                <li><a href="{% url 'ServiceApp:IndexView' %}">SERVICES</a></li>
 
                             </ul>
                         </nav>
@@ -69,9 +71,9 @@
                 <div class="f-content">
                     <h4>NAVIGATION</h4>
                     <ul>
-                        <li><a href="home.html">HOME</a></li>
-                        <li><a href="aboutus.html"> ABOUT US</a></li>
-                        <li><a href="services.html">SERVICES</a></li>
+                        <li><a href="{% url 'HomeApp:HomeView' %}">HOME</a></li>
+                                <li><a href="aboutus.html">ABOUT US </a></li>
+                                <li><a href="{% url 'ServiceApp:IndexView' %}">SERVICES</a></li>
 
                     </ul>
 
@@ -79,9 +81,9 @@
                 <div class="f-content">
                     <h4>HEALTH CARE</h4>
                     <ul>
-                        <li><a href="covidform.html">COVID-19</a></li>
-                        <li><a href="lungform.html"> LUNG CANCER</a></li>
-                        <li><a href="Pneumoniaform.html">PNEUMONIA</a></li>
+                        <li><a href="{% url 'FormApp:CovidView' %}">COVID-19</a></li>
+                        <li><a href="{% url 'FormApp:LungView' %}"> LUNG CANCER</a></li>
+                        <li><a href="{% url 'FormApp:PneumoniaView' %}">PNEUMONIA</a></li>
                     </ul>
 
                 </div>

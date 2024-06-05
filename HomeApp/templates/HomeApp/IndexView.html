@@ -24,9 +24,9 @@
           <div class="nav-bar">
             <nav>
               <ul>
-                <li><a href="home.html">HOME</a></li>
+                <li><a href="{% url 'HomeApp:HomeView' %}">HOME</a></li>
                 <li><a href="aboutus.html">ABOUT US </a></li>
-                <li><a href="services.html">SERVICES</a></li>
+                <li><a href="{% url 'ServiceApp:IndexView' %}">SERVICES</a></li>
 
               </ul>
             </nav>
@@ -40,7 +40,6 @@
         <div class="inner-bar">
           <div class="bar-logo">
             <img src="{% static 'assets/images/logo.png' %}">
-            <img src="{% static 'assets/images/logo.PNG' %}">
 
 
           </div>
@@ -119,7 +118,6 @@
         <div class="services-card">
 
           <img src="{% static 'assets/images/normal.png' %}">
-          <img src="{% static 'assets/images/normal.PNG' %}">
 
           <h3>NORMAL</h3>
 
@@ -127,14 +125,12 @@
 
         <div class="services-card">
           <img src="{% static 'assets/images/infected.png' %}">
-          <img src="{% static 'assets/images/infected.PNG' %}">
 
           <h3>INFECTED</h3>
 
         </div>
         <div class="services-card">
           <img src="{% static 'assets/images/opacity.png' %}">
-          <img src="{% static 'assets/images/opacity.PNG' %}">
           <h3>OPACITY </h3>
 
         </div>
@@ -171,9 +167,9 @@
         <div class="f-content">
           <h4>NAVIGATION</h4>
           <ul>
-            <li><a href="home.html">HOME</a></li>
+            <li><a href="{% url 'HomeApp:HomeView' %}">HOME</a></li>
             <li><a href="aboutus.html"> ABOUT US</a></li>
-            <li><a href="services.html">SERVICES</a></li>
+            <li><a href="{% url 'ServiceApp:IndexView' %}">SERVICES</a></li>
 
           </ul>
 
@@ -181,9 +177,9 @@
         <div class="f-content">
           <h4>HEALTH CARE</h4>
           <ul>
-            <li><a href="covidform.html">COVID-19</a></li>
-            <li><a href="lungform.html"> LUNG CANCER</a></li>
-            <li><a href="Pneumoniaform.html">PNEUMONIA</a></li>
+            <li><a href="{% url 'FormApp:CovidView' %}">COVID-19</a></li>
+            <li><a href="{% url 'FormApp:LungView' %}"> LUNG CANCER</a></li>
+            <li><a href="{% url 'FormApp:PneumoniaView' %}">PNEUMONIA</a></li>
           </ul>
 
         </div>
@@ -194,7 +190,6 @@
           <button>Send</button>
 
           <img src="{% static 'assets/images/logo-bg-none.png' %}">
-          <img src="{% static 'assets/images/logo-bg-none.PNG' %}">
 
 
         </div>
