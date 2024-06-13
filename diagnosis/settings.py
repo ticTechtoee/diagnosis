@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'HomeApp.apps.HomeappConfig',
     'ServiceApp.apps.ServiceappConfig',
     'FormApp.apps.FormappConfig',
+    'AdminApp.apps.AdminappConfig',
 ]
 
 MIDDLEWARE = [

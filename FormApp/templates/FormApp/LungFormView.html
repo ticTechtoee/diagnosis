@@ -2,34 +2,32 @@
 {% load static %}
 {% block content %}
 <section>
-
-
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="f-main">
-        <h1>Lung Cancer Detection:</h1>
+        <h1>{{ title }}:</h1>
 
         <div class="input-field">
-            {{ form.name }}
-            {{ form.phone }}
-            {{ form.email }}<br>
-            {{ form.adoption_date }}<br>
-            {{ form.age }}
+            {{ form.non_field_errors }}
+            {{ form.name.errors }}{{ form.name }}
+            {{ form.phone.errors }}{{ form.phone }}
+            {{ form.email.errors }}{{ form.email }}<br>
+            {{ form.adoption_date.errors }}{{ form.adoption_date }}<br>
+            {{ form.age.errors }}{{ form.age }}
 
             <p>Gender</p>
-            {{ form.gender }}
+            {{ form.gender.errors }}{{ form.gender }}
 
             <div class="upload-label">
                 <label>Upload File</label>
-                {{ form.upload_file }}
+                {{ form.upload_file.errors }}{{ form.upload_file }}
             </div>
+            {{ form.detection_type.errors }}{{ form.detection_type }}
             <div class="f-btn">
                 <button type="submit">Submit</button>
             </div>
         </div>
     </div>
-</form>
-
-
-  </section>
+  </form>
+</section>
 {% endblock content %}

@@ -1,32 +1,44 @@
 from django.shortcuts import render
-from .forms import DetectionForm
+from .forms import CovidDetectionForm, LungCancerDetectionForm, PneumoniaDetectionForm
 
 def ViewCovid(request):
     if request.method == 'POST':
-        form = DetectionForm(request.POST, request.FILES)
+        form = CovidDetectionForm(request.POST, request.FILES)
         if form.is_valid():
+            form.save()
             # Handle form processing here
             pass
+        else:
+            print(form.errors)
     else:
-        form = DetectionForm()
-    return render(request, "FormApp/CovidFormView.html", {'form': form})
+        form = CovidDetectionForm()
+
+    return render(request, "FormApp/LungFormView.html", {'form': form, 'title': 'Covid-19 Detection'})
 
 def ViewLung(request):
     if request.method == 'POST':
-        form = DetectionForm(request.POST, request.FILES)
+        form = LungCancerDetectionForm(request.POST, request.FILES)
         if form.is_valid():
+            form.save()
             # Handle form processing here
             pass
+        else:
+            print(form.errors)
     else:
-        form = DetectionForm()
-    return render(request, "FormApp/LungFormView.html", {'form': form})
+        form = LungCancerDetectionForm()
+
+    return render(request, "FormApp/LungFormView.html", {'form': form, 'title': 'Lung Cancer Detection'})
 
 def ViewPneumonia(request):
     if request.method == 'POST':
-        form = DetectionForm(request.POST, request.FILES)
+        form = PneumoniaDetectionForm(request.POST, request.FILES)
         if form.is_valid():
+            form.save()
             # Handle form processing here
             pass
+        else:
+            print(form.errors)
     else:
-        form = DetectionForm()
-    return render(request, "FormApp/PneumoniaFormView.html", {'form': form})
+        form = PneumoniaDetectionForm()
+
+    return render(request, "FormApp/LungFormView.html", {'form': form, 'title': 'Pneumonia Detection'})
