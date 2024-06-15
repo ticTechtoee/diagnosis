@@ -14,7 +14,7 @@ div.container{
 .topbar{
 	width: 100%;
 	background-color: #000000;
-	padding: 15px 0;  
+	padding: 15px 0;
 
 }
 
@@ -28,9 +28,9 @@ div.container{
 
 .nav-bar ul li{
     display: inline;
-   
+
     margin: 15px;
-    
+
 }
 
 .nav-bar ul li a{
@@ -50,10 +50,21 @@ div.container{
 	padding: 10px 0px;
 
 }
+.nav-btn button{
 
+
+	color: white;
+    padding: 8px 25px 8px 25px;
+    background-color: #81BCBA;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+}
 .bar-logo{
 	width: 15%;
-	
+
 }
 .bar-logo img{
 	width: 180px;
@@ -87,9 +98,9 @@ section{
 	width: 40%;
 	background-color: whitesmoke;
 	margin: 0 auto;
-	
+
 	box-shadow: 2px 2px 12px 1px;
-	
+
 
 }
 .f-main h1{
@@ -106,8 +117,8 @@ section{
 .input-field{
 	width: 70%;
 	margin: 0 auto;
-	
-	
+
+
 }
 
 input[type=text] {
@@ -120,7 +131,7 @@ input[type=text] {
 input[type=number] {
     width: 100%;
     padding: 10px 5px 10px 5px;
-    
+
     background-color: transparent;
     border: 1px solid  #E4E9E9;
 }
@@ -136,15 +147,15 @@ input[type=number] {
 	font-family: sans-serif;
 	font-size: 14px;
 	color: #919298;
-	
+
 
 }
 
 input[type=radio] {
     font-size: 12px;
     margin: 0px 8px;
-    
-   
+
+
 }
 
 .input-field input[type=email] {
@@ -166,7 +177,7 @@ input[type=radio] {
 .upload-label label{
 
 	font-family: sans-serif;
-	
+
 	font-size: 18px;
 	color: #7D7697;
 
@@ -181,21 +192,21 @@ input[type=radio] {
 	display: flex;
 	justify-content: center;
     padding: 10px 0px 40px 0px;
-    
-    
+
+
 }
 
 .f-btn button{
-    
+
     color: white;
-   
+
     padding: 8px 50px 8px 50px;
     background-color: #81BCBA;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
-    font-weight: 500; 
+    font-weight: 500;
     border: none;
-    
+
 }
 
 
@@ -208,7 +219,7 @@ footer{
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
-	
+
 	padding: 40px 0px 30px 0px;
 
 
@@ -239,7 +250,7 @@ footer{
     font-size: 14px;
     text-decoration: none;
     color: #ffffff;
-    
+
 }
 
 
@@ -250,13 +261,13 @@ footer{
 .subscribe h4{
 
 	font-family: 'Bitter', serif;
-	
+
 	font-weight: 700;
 	color: #ffffff;
-	
+
 }
 .subscribe input[type=email]{
-    
+
     border: none;
 
     border-bottom: 2px solid black;
@@ -275,8 +286,8 @@ footer{
     font-family: sans-serif;
     cursor: pointer;
     font-family: sans-serif;
-    padding-left: 20px; 
- } 
+    padding-left: 20px;
+ }
 
  .subscribe img{
  	width: 180px;
