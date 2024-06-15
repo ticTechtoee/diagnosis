@@ -1,0 +1,36 @@
+{% extends "AdminBase.html" %}
+{% load static %}
+{% block content %}
+<section>
+    <div class="container">
+        <div class="banner-one">
+            <h2>PATIENTS LIST</h2>
+        </div>
+        <div class="user-accounts">
+            <table border="2" cellspacing="0" width="100%">
+                <tr>
+                    <th>Sr no</th>
+                    <th>Patient Name</th>
+                    <th>Date</th>
+                    <th>Contact</th>
+                    <th>Status</th>
+                </tr>
+                {% for patient in Patients %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{patient.name}}</td>
+                    <td>{{patient.adoption_date}}</td>
+                    <td>{{patient.phone}}</td>
+                    <form action="{% url 'AdminApp:DeletePatienView' patient.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+
+                    <td><button type="submit" class="t-button">Delete</button> <button class="t-button-two">View Record</button></td>
+                </form>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock content %}

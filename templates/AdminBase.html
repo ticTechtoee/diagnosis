@@ -6,6 +6,7 @@
 	<title>Diagnosis</title>
 	<link rel="stylesheet" href="{% static 'assets/css/admindashboardstyle.css' %}">
 	<link rel="stylesheet" href="{% static 'assets/css/manageaccountsstyle.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/patientliststyle.css' %}">
 
 
 
@@ -24,9 +25,9 @@
 				<div class="nav-bar">
 					<nav>
 						<ul>
-							<li><a href="home.html">HOME</a></li>
-							<li><a href="aboutus.html">ABOUT US </a></li>
-							<li><a href="services.html">SERVICES</a></li>
+							<li><a href="{% url "HomeApp:HomeView" %}">HOME</a></li>
+							<li><a href="{% url "HomeApp:AboutUsView" %}">ABOUT US </a></li>
+							<li><a href="{% url "ServiceApp:IndexView" %}">SERVICES</a></li>
 						</ul>
 					</nav>
 				</div>

@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model
 from AccountApp.models import CustomUser
 from django.http import Http404
+from FormApp.models import Detection
+
 def ViewAdminDashboard(request):
     return render(request, "AdminApp/AdminDashboard.html")
 
@@ -22,3 +24,18 @@ def ViewDeleteUser(request, pk):
         raise Http404("User does not exist")
 
     return redirect('AdminApp:ManageAccountsView')
+
+def ViewPatientList(request):
+    get_patients = Detection.objects.all()
+    context = {"Patients": get_patients}
+    return render(request, "AdminApp/PatientList.html", context)
+
+def ViewDeletePatient(request, pk):
+    try:
+        get_patient = Detection.objects.get(id=pk)
+        get_patient.delete()
+    except Detection.DoesNotExist:
+        raise Http404("User does not exist")
+
+    return redirect('AdminApp:PatientListView')
+
