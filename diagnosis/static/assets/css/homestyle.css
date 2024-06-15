@@ -22,14 +22,14 @@ div.container{
 .topbar{
 	width: 100%;
 	background-color: #000000;
-	padding: 15px 0;  
+	padding: 15px 0;
 
 }
 
 .nav-main{
 	width: 100%;
     display: flex;
-    
+
     align-items: center;
 
 }
@@ -38,14 +38,14 @@ div.container{
 }
 .nav-btn button{
 
-	
+
 	color: white;
     padding: 8px 25px 8px 25px;
     background-color: #81BCBA;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    font-weight: 500; 
+    font-weight: 500;
     border: none;
 }
 .nav-bar{
@@ -58,9 +58,9 @@ div.container{
 
 .nav-bar ul li{
     display: inline;
-   
+
     margin: 15px;
-    
+
 }
 
 .nav-bar ul li a{
@@ -72,7 +72,7 @@ div.container{
 }
 
 .innerbar-main{
-	
+
 	border-bottom: 2px solid #666666;
 }
 .inner-bar {
@@ -86,7 +86,7 @@ div.container{
 
 .bar-logo{
 	width: 15%;
-	
+
 }
 .bar-logo img{
 	width: 180px;
@@ -107,7 +107,7 @@ div.container{
 	font-weight: 400;
 }
 /*body {
-	background-color: #F4F4F4;	
+	background-color: #F4F4F4;
 
 }*/
 .bg-light{
@@ -149,7 +149,7 @@ div.container{
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
-	
+
 	padding: 30px 0px;
 
 }
@@ -168,10 +168,10 @@ div.container{
 
 }
 .bn3-content{
-	
+
 	width: 100%;
 	text-align: center;
-	
+
 	padding: 40px 0px;
 }
 .bn3-content h5{
@@ -181,7 +181,7 @@ div.container{
 	color: #000000;
 
 
-	
+
 }
 
 .bn3-content button{
@@ -191,7 +191,7 @@ div.container{
     background-color: #81BCBA;
     cursor: pointer;
     font-family: 'Roboto', sans-serif;
-    font-weight: 500; 
+    font-weight: 500;
     border: none;
 }
 
@@ -210,21 +210,21 @@ div.container{
 	display: flex;
 	justify-content: space-between;
 	padding: 50px 0;
-	
+
 }
 .services-card{
 	width: 30%;
 	border: 1px solid lightgray;
 	box-shadow: 0px 0px 1px 0px;
-	
+
 }
 .services-card:hover{
 	background-color: gray;
-	
+
 }
 
 .services-card h3{
-	padding: 5px 0px; 
+	padding: 5px 0px;
 	font-size: 16px;
 	letter-spacing: 1px;
 	text-align: center;
@@ -235,7 +235,7 @@ div.container{
 
 .services-card img{
 	width: 100%;
-	
+
 }
 
 
@@ -267,7 +267,7 @@ footer{
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
-	
+
 	padding: 40px 0px 30px 0px;
 
 
@@ -298,7 +298,7 @@ footer{
     font-size: 14px;
     text-decoration: none;
     color: #ffffff;
-    
+
 }
 
 
@@ -309,13 +309,13 @@ footer{
 .subscribe h4{
 
 	font-family: 'Bitter', serif;
-	
+
 	font-weight: 700;
 	color: #ffffff;
-	
+
 }
 .subscribe input[type=email]{
-    
+
     border: none;
 
     border-bottom: 2px solid black;
@@ -334,8 +334,8 @@ footer{
     font-family: sans-serif;
     cursor: pointer;
     font-family: sans-serif;
-    padding-left: 20px; 
- } 
+    padding-left: 20px;
+ }
 
  .subscribe img{
  	width: 180px;
@@ -390,7 +390,7 @@ footer{
 
 
 
-  
+
 }
 
 @media only screen and (max-width:480px) {
@@ -429,7 +429,7 @@ footer{
 	}
 
 	.banner-3 {
-		background-position-y: 43%;	
+		background-position-y: 43%;
 	}
 	.bn3-content h5 {
 		font-size: 21px;

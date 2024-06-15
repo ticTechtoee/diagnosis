@@ -1,5 +1,8 @@
 {% extends "MainBase.html" %}
 {% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'assets/css/covidformstyle.css' %}">
+{% endblock %}
 {% block content %}
 <section>
   <form method="post" enctype="multipart/form-data">

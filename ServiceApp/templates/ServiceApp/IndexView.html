@@ -1,24 +1,19 @@
-
 {% extends "MainBase.html" %}
 {% load static %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'assets/css/servicestyle.css' %}">
+{% endblock %}
+
 {% block content %}
-
-
 <section>
-
-
     <div class="banner-one">
-
         <h2>OUR SERVICES</h2>
         <p>We have developed deep learning models to classify three diseases including<br> Covid-19, Lung Cancer,
             Pneumonia disease.</p>
-
     </div>
 
     <div class="our-services">
-
         <div class="services-card">
-
             <img src="{% static 'assets/images/covid.jpg' %}">
             <h3>Covid-19 Detection</h3>
             <p>This model run on pre-trained models to classify whether the patient has contracted Covid-19 or not.
@@ -27,7 +22,6 @@
                 <button><a href="{% url 'FormApp:CovidView' %}" class="anchor">Detect here!</a></button>
             </div>
         </div>
-
         <div class="services-card">
             <img src="{% static 'assets/images/cancer.jpg' %}">
             <h3>Lung Cancer Detection</h3>
@@ -47,7 +41,5 @@
             </div>
         </div>
     </div>
-
 </section>
-
 {% endblock content %}

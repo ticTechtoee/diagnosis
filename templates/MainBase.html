@@ -4,10 +4,8 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'assets/css/homestyle.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/covidformstyle.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/servicestyle.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/aboutusstyle.css' %}">
+    {% block head %}
+    {% endblock %}
     <title>Diagnosis</title>
 </head>
 <body>
@@ -17,9 +15,9 @@
                 <div class="nav-main">
                     <div class="nav-btn">
                         {% if user.is_authenticated %}
-                            <button><a href="{% url 'AccountApp:LogoutView' %}" class="anchor-a">Logout</a></button>
+                        <button><a href="{% url 'AccountApp:LogoutView' %}" class="anchor-a">Logout</a></button>
                         {% else %}
-                            <button><a href="{% url 'AccountApp:LoginView' %}" class="anchor-a">Sign in</a></button>
+                        <button><a href="{% url 'AccountApp:LoginView' %}" class="anchor-a">Sign in</a></button>
                         {% endif %}
                     </div>
                     <div class="nav-bar">
@@ -56,12 +54,29 @@
                 <div class="f-content">
                     <h4>NAVIGATION</h4>
                     <ul>
-                        <li><a href="{% url 'HomeApp:HomeView' %}">HOME</a></li>
-                        <li><a href="{% url 'HomeApp:AboutUsView' %}">ABOUT US</a></li>
-                        <li><a href="{% url 'ServiceApp:IndexView' %}">SERVICES</a></li>
+                        <li><a href="{% url "HomeApp:HomeView" %}">HOME</a></li>
+							<li><a href="{% url "HomeApp:AboutUsView" %}">ABOUT US </a></li>
+							<li><a href="{% url "ServiceApp:IndexView" %}">SERVICES</a></li>
                     </ul>
                 </div>
                 <div class="f-content">
                     <h4>HEALTH CARE</h4>
                     <ul>
-                        <li><a href="{% url 'FormApp:CovidView' %}">COVID-19</a
+                        <li><a href="{% url 'FormApp:CovidView' %}">COVID-19</a></li>
+                        <li><a href="{% url 'FormApp:LungView' %}"> LUNG CANCER</a></li>
+                        <li><a href="{% url 'FormApp:PneumoniaView' %}">PNEUMONIA</a></li>
+                    </ul>
+                </div>
+                <div class="subscribe">
+                    <h4> SUBSCRIBE</h4>
+                    <input type="email" name="name" placeholder="Email Address">
+                    <button>Send</button>
+                                        <img src="{% static 'assets/images/logo-bg-none.png' %}">
+
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <h5>&copy; 2023 by Diagnosis, Proudly created</h5>
+        </div>
+    </footer>

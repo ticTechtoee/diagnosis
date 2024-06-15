@@ -14,7 +14,7 @@ div.container{
 .topbar{
 	width: 100%;
 	background-color: #000000;
-	padding: 15px 0;  
+	padding: 15px 0;
 
 }
 
@@ -28,9 +28,9 @@ div.container{
 
 .nav-bar ul li{
     display: inline;
-   
+
     margin: 15px;
-    
+
 }
 
 .nav-bar ul li a{
@@ -40,9 +40,20 @@ div.container{
 	list-style-type: none;
 
 }
+.nav-btn button{
 
+
+	color: white;
+    padding: 8px 25px 8px 25px;
+    background-color: #81BCBA;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+}
 .innerbar-main{
-	
+
 	border-bottom: 2px solid #666666;
 }
 .inner-bar {
@@ -56,7 +67,7 @@ div.container{
 
 .bar-logo{
 	width: 15%;
-	
+
 }
 .bar-logo img{
 	width: 180px;
@@ -91,11 +102,11 @@ div.container{
 	display: flex;
 	height: 100%;
 	align-items: center;
-	
+
 }
 .banner1-text{
 	width: 60%;
-		
+
 }
 
 .banner1-h{
@@ -110,14 +121,14 @@ div.container{
 	font-size: 30px;
 	font-weight: 600;
 	text-align: center;
-	
+
 	color: #043781;
 
 }
 .banner-two{
 	width: 100%;
 	padding-top: 50px;
-	
+
 }
 
 
@@ -129,15 +140,15 @@ div.container{
 }
 .bn-2{
 	width: 50%;
-	
+
 }
 
 .bn-2 h1{
 	font-family: 'Roboto', sans-serif;
-	font-size: 24px; 
+	font-size: 24px;
 	font-weight: 500;
 	color: #002A75;
-    
+
 }
 
 .bn-2 hr{
@@ -158,8 +169,8 @@ div.container{
 .bn-2 p{
 	font-family: 'Roboto', sans-serif;
 	font-size: 15px;
-	color: #878689; 
-	text-align: justify;   
+	color: #878689;
+	text-align: justify;
 }
 
 
@@ -179,15 +190,15 @@ div.container{
 }
 .bn-3{
 	width: 50%;
-	
+
 }
 
 .bn-3 h1{
 	font-family: 'Roboto', sans-serif;
-	font-size: 24px; 
+	font-size: 24px;
 	font-weight: 500;
 	color: #002A75;
-    
+
 }
 
 .bn-3 hr{
@@ -199,8 +210,8 @@ div.container{
 .bn-3 p{
 	font-family: 'Roboto', sans-serif;
 	font-size: 15px;
-	color: #878689; 
-	text-align: justify;  
+	color: #878689;
+	text-align: justify;
 }
 
 .bn3{
@@ -227,7 +238,7 @@ footer{
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
-	
+
 	padding: 40px 0px 30px 0px;
 }
 
@@ -257,7 +268,7 @@ footer{
     font-size: 14px;
     text-decoration: none;
     color: #ffffff;
-    
+
 }
 
 
@@ -268,13 +279,13 @@ footer{
 .subscribe h4{
 
 	font-family: 'Bitter', serif;
-	
+
 	font-weight: 700;
 	color: #ffffff;
-	
+
 }
 .subscribe input[type=email]{
-    
+
     border: none;
 
     border-bottom: 2px solid black;
@@ -293,8 +304,8 @@ footer{
     font-family: sans-serif;
     cursor: pointer;
     font-family: sans-serif;
-    padding-left: 20px; 
- } 
+    padding-left: 20px;
+ }
 
  .subscribe img{
  	width: 180px;

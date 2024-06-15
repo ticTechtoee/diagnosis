@@ -2,6 +2,9 @@
 {% load static %}
 {% block content %}
 
+{% block head %}
+<link rel="stylesheet" href="{% static 'assets/css/homestyle.css' %}">
+{% endblock %}
   <section class="bg-light">
 
     <div class="hero-bn">
@@ -52,7 +55,7 @@
       <div class="bn3-content">
         <h5>Welcome to Diagnosis!<br>Upload an image and get the results.</h5>
 
-        <button><a href="services.html" class="anchor-a">TRY HEALTHCURE</a></button>
+        <button><a href="{% url 'ServiceApp:IndexView' %}" class="anchor-a">TRY HEALTHCURE</a></button>
       </div>
     </div>
   </section>
@@ -83,27 +86,4 @@
     </div>
   </section>
 
-  <!-- <section class="bg-light">
-    <div class="container">
-    <div class="diseases">
-       <div class="services-card">
-
-          <img src="assets/images/c2.png">
-          <h3>Covid-19</h3>
-
-        </div>
-
-        <div class="services-card">
-          <img src="assets/images/l2.png">
-          <h3>Lung Cancer</h3>
-
-        </div>
-        <div class="services-card">
-          <img src="assets/images/p1.png">
-          <h3>Pneumonia</h3>
-
-        </div>
-      </div>
-    </div>
-</section>-->
 {% endblock content  %}
