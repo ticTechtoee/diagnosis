@@ -9,13 +9,13 @@
 		<div class="services-card">
 			<img src="{% static 'assets/images/accounts.png' %}">
 			<div class="service-btn">
-				<button><a href="" class="anchor">Manage Accounts</a></button>
+				<button><a href="{% url "AdminApp:ManageAccountsView" %}" class="anchor">Manage Accounts</a></button>
 			</div>
 		</div>
 		<div class="services-card">
 			<img src="{% static 'assets/images/health.jpeg' %}">
 			<div class="service-btn">
-				<button><a href="" class="anchor">Patients List</a></button>
+				<button><a href="{% url "AdminApp:PatientListView" %}" class="anchor">Patients List</a></button>
 			</div>
 		</div>
 	</div>

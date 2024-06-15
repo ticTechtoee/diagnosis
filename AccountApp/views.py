@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm, CustomAuthenticationForm
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 
@@ -26,7 +26,10 @@ def ViewLogin(request):
             user = authenticate(request, email=email, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('HomeApp:HomeView')
+                if user.is_superuser:
+                    return redirect("AdminApp:DashboardView")
+                else:
+                    return redirect('HomeApp:HomeView')
             else:
                 messages.error(request, "Invalid email or password.")
         else:
@@ -34,3 +37,7 @@ def ViewLogin(request):
     else:
         form = CustomAuthenticationForm()
     return render(request, "AccountApp/LoginView.html", {'form': form})
+
+def ViewLogout(request):
+    logout(request)
+    return redirect("AccountApp:LoginView")

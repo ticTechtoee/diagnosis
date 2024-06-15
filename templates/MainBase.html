@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     {% load static %}
     <meta charset="UTF-8">
@@ -9,22 +8,19 @@
     <link rel="stylesheet" href="{% static 'assets/css/covidformstyle.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/servicestyle.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/aboutusstyle.css' %}">
-
-
     <title>Diagnosis</title>
 </head>
-
 <body>
-
-
     <header>
         <div class="topbar">
             <div class="container">
-
                 <div class="nav-main">
                     <div class="nav-btn">
-                        <button><a href="{% url 'HomeApp:HomeView' %}" class="anchor-a">Sign in</a></button>
-
+                        {% if user.is_authenticated %}
+                            <button><a href="{% url 'AccountApp:LogoutView' %}" class="anchor-a">Logout</a></button>
+                        {% else %}
+                            <button><a href="{% url 'AccountApp:LoginView' %}" class="anchor-a">Sign in</a></button>
+                        {% endif %}
                     </div>
                     <div class="nav-bar">
                         <nav>
@@ -32,40 +28,28 @@
                                 <li><a href="{% url 'HomeApp:HomeView' %}">HOME</a></li>
                                 <li><a href="{% url 'HomeApp:AboutUsView' %}">ABOUT US </a></li>
                                 <li><a href="{% url 'ServiceApp:IndexView' %}">SERVICES</a></li>
-
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
-
         </div>
         <div class="innerbar-main">
             <div class="container">
                 <div class="inner-bar">
                     <div class="bar-logo">
                         <img src="{% static 'assets/images/logo.png' %}">
-
-
                     </div>
                     <div class="vertical-line"></div>
-
-
                     <div class="bar-text">
                         <h1>AI Techniques in CT Scan Imaging Segmentation and Diagnose</h1>
-
                     </div>
-
                 </div>
-
             </div>
         </div>
     </header>
-
     {% block content %}
-
     {% endblock content %}
-
     <footer>
         <div class="container">
             <div class="footer-main">
@@ -75,40 +59,9 @@
                         <li><a href="{% url 'HomeApp:HomeView' %}">HOME</a></li>
                         <li><a href="{% url 'HomeApp:AboutUsView' %}">ABOUT US</a></li>
                         <li><a href="{% url 'ServiceApp:IndexView' %}">SERVICES</a></li>
-
                     </ul>
-
                 </div>
                 <div class="f-content">
                     <h4>HEALTH CARE</h4>
                     <ul>
-                        <li><a href="{% url 'FormApp:CovidView' %}">COVID-19</a></li>
-                        <li><a href="{% url 'FormApp:LungView' %}"> LUNG CANCER</a></li>
-                        <li><a href="{% url 'FormApp:PneumoniaView' %}">PNEUMONIA</a></li>
-                    </ul>
-
-                </div>
-                <div class="subscribe">
-
-                    <h4> SUBSCRIBE</h4>
-                    <input type="email" name="nmae" placeholder="Email Address">
-                    <button>Send</button>
-
-                    <img src="{% static 'assets/images/logo-bg-none.png' %}">
-                    <img src="{% static 'assets/images/logo-bg-none.PNG' %}">
-
-
-                </div>
-
-            </div>
-        </div>
-        <div class="copyright">
-            <h5>&copy; 2023 by Diagnosis, Proudly created</h5>
-        </div>
-
-
-    </footer>
-
-</body>
-
-</html>
+                        <li><a href="{% url 'FormApp:CovidView' %}">COVID-19</a
