@@ -39,3 +39,13 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = CustomUser
         fields = ("email",)
+
+
+class PasswordResetRequestForm(forms.Form):
+    email = forms.EmailField(label="Email", max_length=254, widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if not CustomUser.objects.filter(email=email).exists():
+            raise forms.ValidationError("There is no user registered with the specified email address.")
+        return email
