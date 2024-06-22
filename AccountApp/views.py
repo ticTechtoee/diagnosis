@@ -55,7 +55,7 @@ def ViewForgetPassword(request):
             user = CustomUser.objects.get(email=email)
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
-            password_reset_url = request.build_absolute_uri(f'/reset/{uid}/{token}/')
+            password_reset_url = request.build_absolute_uri(f'/account/reset/{uid}/{token}/')
 
             context = {
                 'email': user.email,

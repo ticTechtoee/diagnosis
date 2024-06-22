@@ -1,0 +1,16 @@
+{% extends "MainBase.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'assets/css/detectionresultstyle.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="result-section">
+    <div class="result-container">
+        <h2>Detection Result</h2>
+        <p class="prediction">The prediction for the uploaded image is: <span class="result">{{ result }}</span></p>
+        <p class="disease">Detecting for: <span class="disease-type">{{ disease }}</span></p>
+    </div>
+</section>
+{% endblock content %}

@@ -10,16 +10,24 @@
             <table border="2" cellspacing="0" width="100%">
                 <tr>
                     <th>Sr no</th>
+                    <th>Patient ID</th>
                     <th>Patient Name</th>
                     <th>Date</th>
                     <th>Contact</th>
-                    <th>Status</th>
+                    <th>COVID</th>
+                    <th>Lung Cancer</th>
+                    <th>Pneumonia</th>
+
                 </tr>
                 {% for patient in Patients %}
                 <tr>
                     <td>{{forloop.counter}}</td>
+                    <td>{{forloop.patient_id}}</td>
                     <td>{{patient.name}}</td>
                     <td>{{patient.adoption_date}}</td>
+                    <td>{{patient.covid_status}}</td>
+                    <td>{{patient.pneumonia_status}}</td>
+                    <td>{{patient.cancer_status}}</td>
                     <td>{{patient.phone}}</td>
                     <form action="{% url 'AdminApp:DeletePatienView' patient.id %}" method="post" style="display:inline;">
                         {% csrf_token %}
