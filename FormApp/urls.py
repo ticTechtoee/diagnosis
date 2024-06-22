@@ -7,4 +7,5 @@ app_name = "FormApp"
 
 urlpatterns = [
     path('detect_disease/', views.ViewDetectDisease, name="DiseaseView"),
-    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('detection_result/<str:pk>/', views.DetectionResultView, name='DetectionResultView'),
+    ]

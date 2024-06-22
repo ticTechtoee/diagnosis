@@ -1,17 +1,15 @@
-import tensorflow as tf
+import os
+from django.shortcuts import render, redirect, get_object_or_404
+from django.conf import settings
+from .forms import DetectionForm
+from django.contrib.staticfiles import finders
 from tensorflow.keras.models import load_model
 import cv2
 import numpy as np
 
-from django.shortcuts import render
-from django.conf import settings
-from .forms import DetectionForm
-import os
-from django.contrib.staticfiles import finders
-import tensorflow as tf
-from tensorflow.keras.models import load_model
-import cv2
-import numpy as np
+
+from .models import Detection
+
 
 IMAGE_SIZE = (224, 224)
 LABELS_COVID = ['COVID', 'Non-COVID', 'Pneumonia']
@@ -31,7 +29,6 @@ def predict_image(model, image_path, labels):
     img_array = preprocess_image(image_path)
     prediction = model.predict(img_array)
     return labels[np.argmax(prediction)]
-
 
 def ViewDetectDisease(request):
     if request.method == 'POST':
@@ -88,10 +85,21 @@ def ViewDetectDisease(request):
             # Save the detection instance with updated statuses
             detection_instance.save()
 
-            return render(request, 'FormApp/DetectionResult.html', {'result': result, 'disease': result})
+            # Redirect to DetectionResult view with detection instance ID
+            return redirect('FormApp:DetectionResultView', pk=detection_instance.patient_id)
         else:
             print(form.errors)
     else:
         form = DetectionForm()
 
     return render(request, "FormApp/DetectDisease.html", {'form': form, 'title': 'Detection'})
+
+def DetectionResultView(request, pk):
+    detection_instance = get_object_or_404(Detection, patient_id=pk)
+
+    # Prepare context to pass to template
+    context = {
+        'detection_instance': detection_instance,
+    }
+
+    return render(request, 'FormApp/DetectionResult.html', context)

@@ -1,16 +1,28 @@
+<!-- DetectionResult.html -->
+
 {% extends "MainBase.html" %}
 {% load static %}
 
 {% block head %}
-<link rel="stylesheet" href="{% static 'assets/css/detectionresultstyle.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/covidformstyle.css' %}">
 {% endblock %}
 
 {% block content %}
 <section class="result-section">
-    <div class="result-container">
+    <div class="result-container" style="text-align: center;">
         <h2>Detection Result</h2>
-        <p class="prediction">The prediction for the uploaded image is: <span class="result">{{ result }}</span></p>
-        <p class="disease">Detecting for: <span class="disease-type">{{ disease }}</span></p>
+        {% if detection_instance.covid_status %}
+        <p class="prediction">The prediction for the uploaded image is: <span class="result">COVID-19</span></p>
+        {% elif detection_instance.pneumonia_status %}
+        <p class="prediction">The prediction for the uploaded image is: <span class="result">Pneumonia</span></p>
+        {% elif detection_instance.cancer_status %}
+        <p class="prediction">The prediction for the uploaded image is: <span class="result">Lung Cancer</span></p>
+        {% endif %}
+        {% if detection_instance.covid_status or detection_instance.pneumonia_status %}
+        <div class="segmented-image">
+            <img style="width: 20%; height: 20%;" src="{{ detection_instance.upload_file.url }}" alt="Segmented Image">
+        </div>
+        {% endif %}
     </div>
 </section>
 {% endblock content %}
