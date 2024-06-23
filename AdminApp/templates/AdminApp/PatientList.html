@@ -17,22 +17,22 @@
                     <th>COVID</th>
                     <th>Lung Cancer</th>
                     <th>Pneumonia</th>
+                    <th>Action</th>
 
                 </tr>
                 {% for patient in Patients %}
                 <tr>
                     <td>{{forloop.counter}}</td>
-                    <td>{{forloop.patient_id}}</td>
+                    <td>{{patient.patient_id}}</td>
                     <td>{{patient.name}}</td>
                     <td>{{patient.adoption_date}}</td>
                     <td>{{patient.covid_status}}</td>
                     <td>{{patient.pneumonia_status}}</td>
                     <td>{{patient.cancer_status}}</td>
                     <td>{{patient.phone}}</td>
-                    <form action="{% url 'AdminApp:DeletePatienView' patient.id %}" method="post" style="display:inline;">
+                    <form action="{% url 'AdminApp:DeletePatientView' patient.id %}" method="post" style="display:inline;">
                         {% csrf_token %}
-
-                    <td><button type="submit" class="t-button">Delete</button> <button class="t-button-two">View Record</button></td>
+                    <td><button type="submit" class="t-button">Delete</button></td>
                 </form>
                 </tr>
                 {% endfor %}

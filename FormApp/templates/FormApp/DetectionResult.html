@@ -1,5 +1,3 @@
-<!-- DetectionResult.html -->
-
 {% extends "MainBase.html" %}
 {% load static %}
 
@@ -17,10 +15,13 @@
         <p class="prediction">The prediction for the uploaded image is: <span class="result">Pneumonia</span></p>
         {% elif detection_instance.cancer_status %}
         <p class="prediction">The prediction for the uploaded image is: <span class="result">Lung Cancer</span></p>
+        {% else %}
+        <p class="prediction">The prediction for the uploaded image is: <span class="result">Normal</span></p>
         {% endif %}
-        {% if detection_instance.covid_status or detection_instance.pneumonia_status %}
+
+        {% if masked_image_url %}
         <div class="segmented-image">
-            <img style="width: 20%; height: 20%;" src="{{ detection_instance.upload_file.url }}" alt="Segmented Image">
+            <img style="width: 50%;" src="{{ masked_image_url }}" alt="Segmented Image">
         </div>
         {% endif %}
     </div>

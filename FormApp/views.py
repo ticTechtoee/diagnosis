@@ -6,7 +6,8 @@ from django.contrib.staticfiles import finders
 from tensorflow.keras.models import load_model
 import cv2
 import numpy as np
-
+from django.conf import settings
+import uuid
 
 from .models import Detection
 
@@ -94,12 +95,60 @@ def ViewDetectDisease(request):
 
     return render(request, "FormApp/DetectDisease.html", {'form': form, 'title': 'Detection'})
 
+def apply_mask(image_path, status):
+    # Load the image using OpenCV
+    img = cv2.imread(image_path)
+
+    # Define colors for masks
+    if status == 'COVID':
+        mask_color = (0, 0, 255)  # Red color for COVID-19 mask
+    elif status == 'Pneumonia':
+        mask_color = (0, 255, 0)  # Green color for Pneumonia mask
+    else:
+        mask_color = (255, 0, 0)  # Blue color for other cases (e.g., Lung Cancer)
+
+    # Create a mask image of the same size as input image
+    mask = np.zeros_like(img)
+    mask[:] = mask_color
+
+    # Apply transparency to the mask (adjust the transparency level as needed)
+    transparency = 0.4  # 40% transparency
+    img = cv2.addWeighted(mask, transparency, img, 1 - transparency, 0)
+
+    # Generate a temporary filename
+    temp_filename = f'masked_image_{uuid.uuid4().hex}.jpg'
+    temp_image_path = os.path.join(settings.MEDIA_ROOT, 'findings', temp_filename)
+
+    # Save the modified image temporarily
+    cv2.imwrite(temp_image_path, img)
+
+    return temp_filename  # Return only the filename, not the full path
+
+
 def DetectionResultView(request, pk):
     detection_instance = get_object_or_404(Detection, patient_id=pk)
+
+    # Determine which disease status to use for masking
+    if detection_instance.covid_status:
+        status = 'COVID'
+    elif detection_instance.pneumonia_status:
+        status = 'Pneumonia'
+    else:
+        status = 'Normal'  # Assuming 'Normal' if none of the statuses are True
+
+    # Get the path of the uploaded image
+    image_path = detection_instance.upload_file.path
+
+    # Apply mask based on status
+    masked_image_filename = apply_mask(image_path, status)
+
+    # Construct the full URL for the masked image
+    masked_image_url = settings.MEDIA_URL +"findings/"+ masked_image_filename
 
     # Prepare context to pass to template
     context = {
         'detection_instance': detection_instance,
+        'masked_image_url': masked_image_url,  # Pass complete URL to the masked image
     }
 
     return render(request, 'FormApp/DetectionResult.html', context)

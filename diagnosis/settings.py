@@ -5,6 +5,19 @@ import os, mimetypes
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+mimetypes.add_type("text/css", ".css", True)
+
+STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+
+    os.path.join(BASE_DIR, 'diagnosis/static/')
+]
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -111,17 +124,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-mimetypes.add_type("text/css", ".css", True)
-
-STATIC_URL = '/static/'
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [
-
-    os.path.join(BASE_DIR, 'diagnosis/static/')
-]
 
 # Email Setting
 

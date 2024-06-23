@@ -10,7 +10,7 @@ class Detection(models.Model):
     adoption_date = models.CharField(max_length=100)  # Changed to CharField
     age = models.IntegerField()
     gender = models.CharField(max_length=6, choices=[('male', 'Male'), ('female', 'Female')])
-    upload_file = models.FileField(upload_to='findings/')
+    upload_file = models.ImageField(upload_to='findings/', blank=True, null=True)
     covid_status = models.BooleanField(blank=True)
     pneumonia_status = models.BooleanField(blank=True)
     cancer_status = models.BooleanField(blank=True)
