@@ -26,10 +26,11 @@
                     <td>{{patient.patient_id}}</td>
                     <td>{{patient.name}}</td>
                     <td>{{patient.adoption_date}}</td>
-                    <td>{{patient.covid_status}}</td>
-                    <td>{{patient.pneumonia_status}}</td>
-                    <td>{{patient.cancer_status}}</td>
                     <td>{{patient.phone}}</td>
+                    <td>{{patient.covid_status}}</td>
+                    <td>{{patient.cancer_status}}</td>
+                    <td>{{patient.pneumonia_status}}</td>
+
                     <form action="{% url 'AdminApp:DeletePatientView' patient.id %}" method="post" style="display:inline;">
                         {% csrf_token %}
                     <td><button type="submit" class="t-button">Delete</button></td>
