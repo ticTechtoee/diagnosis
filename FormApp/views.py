@@ -4,6 +4,7 @@ from django.conf import settings
 from .forms import DetectionForm
 from tensorflow.keras.models import load_model
 import cv2
+from django.contrib.auth.decorators import login_required
 import numpy as np
 from django.contrib.staticfiles import finders
 import uuid
@@ -30,6 +31,7 @@ def predict_image(model, image_path, labels):
     prediction = model.predict(img_array)
     return labels[np.argmax(prediction)]
 
+@login_required
 def ViewDetectDisease(request):
     if request.method == 'POST':
         form = DetectionForm(request.POST, request.FILES)

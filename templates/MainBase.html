@@ -15,13 +15,7 @@
         <div class="topbar">
             <div class="container">
                 <div class="nav-main">
-                    <div class="nav-btn">
-                        {% if user.is_authenticated %}
-                        <button><a href="{% url 'AccountApp:LogoutView' %}" class="anchor-a">Logout</a></button>
-                        {% else %}
-                        <button><a href="{% url 'AccountApp:LoginView' %}" class="anchor-a">Login</a></button>
-                        {% endif %}
-                    </div>
+
                     <div class="nav-bar">
                         <nav>
                             <ul>

@@ -21,7 +21,11 @@
 
         {% if masked_image_url %}
         <div class="segmented-image">
-            <img style="width: 50%;" src="{{ masked_image_url }}" alt="Segmented Image">
+            <img style="width: 50%;" src="{{ masked_image_url }}" alt="Image">
+        </div>
+        {% else %}
+        <div class="segmented-image">
+
         </div>
         {% endif %}
 

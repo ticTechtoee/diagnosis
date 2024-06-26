@@ -17,7 +17,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'diagnosis/static/')
 ]
 
-
+LOGIN_URL = '/account/login/'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
