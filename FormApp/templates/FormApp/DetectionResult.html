@@ -24,6 +24,12 @@
             <img style="width: 50%;" src="{{ masked_image_url }}" alt="Segmented Image">
         </div>
         {% endif %}
+
+        {% if status == "Normal" %}
+        <div class="segmented-image">
+            <img style="width: 50%;" src="{{ detection_instance.upload_file.url }}" alt="Segmented Image">
+        </div>
+        {% endif %}
     </div>
 </section>
 {% endblock content %}

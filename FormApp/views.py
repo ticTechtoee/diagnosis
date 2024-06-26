@@ -2,11 +2,10 @@ import os
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from .forms import DetectionForm
-from django.contrib.staticfiles import finders
 from tensorflow.keras.models import load_model
 import cv2
 import numpy as np
-from django.conf import settings
+from django.contrib.staticfiles import finders
 import uuid
 
 from .models import Detection
@@ -99,31 +98,49 @@ def apply_mask(image_path, status):
     # Load the image using OpenCV
     img = cv2.imread(image_path)
 
-    # Define colors for masks
-    if status == 'COVID':
-        mask_color = (0, 0, 255)  # Red color for COVID-19 mask
-    elif status == 'Pneumonia':
-        mask_color = (0, 255, 0)  # Green color for Pneumonia mask
-    else:
-        mask_color = (255, 0, 0)  # Blue color for other cases (e.g., Lung Cancer)
+    # Check if the image was successfully loaded
+    if img is None:
+        print("Error: Image not loaded. Please check the path.")
+        return
 
-    # Create a mask image of the same size as input image
-    mask = np.zeros_like(img)
-    mask[:] = mask_color
+    # If the status is neither "COVID" nor "Pneumonia", return the image without any mask
+    if status not in ["COVID", "Pneumonia"]:
+        print("Status is not COVID or Pneumonia. Returning original image.")
+        return image_path
 
-    # Apply transparency to the mask (adjust the transparency level as needed)
-    transparency = 0.4  # 40% transparency
-    img = cv2.addWeighted(mask, transparency, img, 1 - transparency, 0)
+    # Convert the image to grayscale
+    gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    # Apply histogram equalization to improve contrast
+    equalized_image = cv2.equalizeHist(gray_image)
+
+    # Apply binary thresholding with a fixed value of 128
+    _, mask = cv2.threshold(equalized_image, 128, 255, cv2.THRESH_BINARY)
+
+    # Apply morphological operations to clean up the mask
+    kernel = np.ones((5, 5), np.uint8)
+    mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, kernel)
+
+    # Define green color for the mask
+    mask_color = (0, 255, 0)  # Green color
+
+    # Create a colored mask
+    colored_mask = np.zeros_like(img)
+    colored_mask[mask == 255] = mask_color
+
+    # Apply transparency to the mask (40% transparency)
+    transparency = 0.4
+    result_image = cv2.addWeighted(colored_mask, transparency, img, 1 - transparency, 0)
 
     # Generate a temporary filename
     temp_filename = f'masked_image_{uuid.uuid4().hex}.jpg'
     temp_image_path = os.path.join(settings.MEDIA_ROOT, 'findings', temp_filename)
 
     # Save the modified image temporarily
-    cv2.imwrite(temp_image_path, img)
+    cv2.imwrite(temp_image_path, result_image)
 
+    print(f"Masked image saved as {temp_image_path}")
     return temp_filename  # Return only the filename, not the full path
-
 
 def DetectionResultView(request, pk):
     detection_instance = get_object_or_404(Detection, patient_id=pk)
@@ -148,7 +165,8 @@ def DetectionResultView(request, pk):
     # Prepare context to pass to template
     context = {
         'detection_instance': detection_instance,
-        'masked_image_url': masked_image_url,  # Pass complete URL to the masked image
+        'masked_image_url': masked_image_url,
+        'status':status,
     }
 
     return render(request, 'FormApp/DetectionResult.html', context)

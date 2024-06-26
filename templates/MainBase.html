@@ -19,7 +19,7 @@
                         {% if user.is_authenticated %}
                         <button><a href="{% url 'AccountApp:LogoutView' %}" class="anchor-a">Logout</a></button>
                         {% else %}
-                        <button><a href="{% url 'AccountApp:LoginView' %}" class="anchor-a">Sign in</a></button>
+                        <button><a href="{% url 'AccountApp:LoginView' %}" class="anchor-a">Login</a></button>
                         {% endif %}
                     </div>
                     <div class="nav-bar">
