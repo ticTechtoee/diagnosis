@@ -99,7 +99,7 @@ The `detect.py` file integrates the trained models into a Django web application
 
 1. **Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/medical-diagnostic-tool.git
+git clone https://github.com/ticTechtoee/diagnosis
 cd medical-diagnostic-tool
 ```
 
